@@ -1,0 +1,44 @@
+{% extends 'basefos.html.twig' %}
+{% block body %}
+	<div class="wrapper">
+		<div class="inner">
+
+			<form action="{{path('fos_user_security_check')}}" method="post">
+				<h3>Connexion</h3>
+				{% if error %}
+					<div class="alert alert-danger">
+
+						<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+
+					</div>
+				{% endif %}
+
+				<input type="hidden" name="go_to" value="redirectlogin"/>
+				<input type="hidden" name="back_to" value="loginh"/>
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+
+
+				<div class="form-wrapper">
+					<input  type="text" class="form-control" placeholder="Nom" >>
+				</div>
+				<div class="form-wrapper">
+				<input  type="password" class="form-control"  >	
+				</div>
+
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">
+						Se souvient de moi .
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<button data-text="Enregistrer">
+					<span>Se connecter</span>
+				</button>
+
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}

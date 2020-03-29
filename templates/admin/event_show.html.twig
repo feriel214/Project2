@@ -1,0 +1,35 @@
+{% extends 'baseadmin.html.twig' %}
+{% block body %}
+	<div class="main-content">
+		<div class="section__content section__content--p30">
+			<h1>Détail de l'évenement</h1></br>
+			<div class="list-group">
+				<button type="button" class="list-group-item list-group-item-action active">
+					ID:
+					{{event.id}}
+				</button>
+				<button type="button" class="list-group-item list-group-item-action">
+					Nom de l'évenement :
+					{{event.nom}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Photo :
+					{{event.photo}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Lieu :
+					{{event.lieu}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Descreption :
+					{{event.descreption}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Date Debut :
+					{{event.getDateDebut()|date('d-m-Y')}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Date Fin :
+					{{event.getdateFin()|date('d-m-Y')}}</button>
+				<button type="button" class="list-group-item list-group-item-action">Temps Debut :
+					{{event.getTempsDebut()|date('H:i')}}</button>
+				<button type="button" class="list-group-item list-group-item-action" disabled>Temps Fin
+					{{event.getTempsFin()|date('H:i')}}</button>
+
+			</div>
+			</br>
+			<a href="/editevent/{{event.id}}" class=" btn btn-success">modifier</a>
+			<a href="/delete/event/{{event.id}}" class=" btn btn-danger">supprimer</a>
+		</div>
+	</div>
+{% endblock %}

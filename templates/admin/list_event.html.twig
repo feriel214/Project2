@@ -1,0 +1,82 @@
+{% extends 'baseadmin.html.twig' %}
+{% block body %}
+	<div class="main-content">
+		<div class="section__content section__content--p30">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="overview-wrap">
+							<h2 class="title-1">Liste Des évenements</h2>
+							<a href="/addevent" class=" btn btn-primary"><i class="zmdi zmdi-plus"></i>Créer</a>
+							
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h2></h2>
+					</br>
+				</br>
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+				<div class="table-responsive table--no-card m-b-40">
+					<table class="table table-hover js-basic-example dataTable table-custom">
+						<thead class="thead-dark">
+							<tr>
+								<th>Id</th>
+								<th>Nom</th>
+								<th>Photo</th>
+								<th>Lieu</th>
+								<th>Description</th>
+								<th>Date Debut</th>
+								<th>Date Fin</th>
+								<th>Temps Debut</th>
+								<th>Temps Fin</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<th>Id</th>
+								<th>Nom</th>
+								<th>Photo</th>
+								<th>Lieu</th>
+								<th>Description</th>
+								<th>Date Debut</th>
+								<th>Date Fin</th>
+								<th>Temps Debut</th>
+								<th>Temps Fin</th>
+								<th>Action</th>
+
+							</tr>
+						</tfoot>
+						<tbody>
+							{% for e in events %}
+								<tr>
+									<td>{{e.id}}</td>
+									<td>{{e.nom}}</td>
+									<td><img src="{{asset('uploads/')}}{{e.photo}}" class="rounded-circle user-photo" width="80"></td>
+									<td>{{e.lieu}}</td>
+									<td>{{e.descreption}}</td>
+									<td>{{e.getDateDebut()|date('d-m-Y')}}</td>
+									<td>{{e.getdateFin()|date('d-m-Y')}}</td>
+									<td>{{e.getTempsDebut()|date('H:i')}}</td>
+									<td>{{e.getTempsFin()|date('H:i')}}</td>
+									<td>
+										<a href="/showevent/{{e.id}}" class=" btn btn-primary">voir</a>
+										<a href="/editevent/{{e.id}}" class=" btn btn-success">modifier</a>
+										<a href="/delete/event/{{e.id}}" class=" btn btn-danger delete-event">supprimer</a>
+									</td>
+									<!-- /.modal -->
+								</tr>
+							</td>
+						</tbody>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div></div></div></div><!-- END MAIN CONTENT--><!-- END PAGE CONTAINER--></div></div><!-- end document-->{% endblock %}

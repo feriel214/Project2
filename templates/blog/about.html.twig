@@ -1,0 +1,143 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+		<div class="page-header">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1>À propos
+						</h1>
+					</div>
+					<!-- .col -->
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .container -->
+		</div>
+		<!-- .page-header -->
+
+		<div class="welcome-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-lg-6 order-2 order-lg-1">
+						<div class="welcome-content">
+							<header class="entry-header">
+								<h2 class="entry-title">Qui sommes-nous ?</h2>
+							</header>
+							<!-- .entry-header -->
+
+							<div class="entry-content mt-5">
+								<p>La Voix De l’Enfant à Nabeul est une organisation tunisienne non gouvernementale qui vient en aide aux enfants en difficulté, voire en détresse en raison des handicapes familiaux ou sociaux.</p>
+							</div>
+							<!-- .entry-content -->
+
+							<div class="entry-footer mt-5">
+								<a href="{{path('news')}}" class="btn gradient-bg mr-2">Plus informations ..</a>
+							</div>
+							<!-- .entry-footer -->
+						</div>
+						<!-- .welcome-content -->
+					</div>
+					<!-- .col -->
+
+					<div class="col-12 col-lg-6 order-1 order-lg-2">
+						<img src="images/DSC_0144.jpg" width="500px" height="400px" alt="welcome">
+					</div>
+					<!-- .col -->
+				</div>
+				<!-- .row -->
+			</div>
+			<!-- .container -->
+		</div>
+		<!-- .home-page-icon-boxes -->
+
+		<div class="about-stats">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="circular-progress-bar">
+							<div class="circle" id="loader_1">
+								<strong class="d-flex justify-content-center"></strong>
+							</div>
+
+							<h3 class="entry-title">Hard Work</h3>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="circular-progress-bar">
+							<div class="circle" id="loader_2">
+								<strong class="d-flex justify-content-center"></strong>
+							</div>
+
+							<h3 class="entry-title">Pure Love</h3>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="circular-progress-bar">
+							<div class="circle" id="loader_3">
+								<strong class="d-flex justify-content-center"></strong>
+							</div>
+
+							<h3 class="entry-title">Smart Ideas</h3>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="circular-progress-bar">
+							<div class="circle" id="loader_4">
+								<strong class="d-flex justify-content-center"></strong>
+							</div>
+
+							<h3 class="entry-title">Good Decisions</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="about-testimonial">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-5">
+						<div styple="display: inline-block">
+							<video height="285px" width="506px" controls>
+								<source src="https://youtu.be/4DNK5Syj1Y0" type="video/mp4">
+							</video>
+							<video height="285px" width="506px" controls>
+								<source src="https://www.youtube.com/watch?v=Ru_RqOmRtug" type="video/mp4">
+							</video>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- The video block -->
+		<div>
+			<div class="video-container">
+				<video poster="Resources/css/img/ioposter.png" controls="true" muted loop>
+					<source src="/Resources/img/vid.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<div style="width:50%;display:inline-block;">
+				<img style="width:100%;" src="Resources/myimg.jpg">
+			</div>
+		</div>
+	</body>
+</html></div><div class="help-us">
+<div class="container">
+	<div class="row">
+		<div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
+			<h2>Help us so we can help others</h2>
+
+			<a class="btn orange-border" href="#">Donate now</a>
+		</div>
+	</div>
+</div>
+</div>
+
+{% endblock %}

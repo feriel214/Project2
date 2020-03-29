@@ -1,0 +1,140 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+body { padding-top:30px; }
+.widget .panel-body { padding:0px; }
+.widget .list-group { margin-bottom: 0; }
+.widget .panel-title { display:inline }
+.widget .label-info { float: right; }
+.widget li.list-group-item {border-radius: 0;border: 0;border-top: 1px solid #ddd;}
+.widget li.list-group-item:hover { background-color: rgba(86,61,124,.1); }
+.widget .mic-info { color: #666666;font-size: 11px; }
+.widget .action { margin-top:5px; }
+.widget .comment-text { font-size: 12px; }
+.widget .btn-block { border-top-left-radius:0px;border-top-right-radius:0px; }
+.panel-default {
+    border-color: #ddd;
+    width: 700px;
+}
+
+</style>
+	<div class="news-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-8">
+					{% for e in event %}
+						<div class="news-content">
+							<a href="#"><img src="{{asset('uploads/')}}{{e.photo}}" alt="" width="754px" height="390px"></a>
+							<header class="entry-header d-flex flex-wrap justify-content-between align-items-center">
+								<div class="header-elements">
+									<div class="posted-date">{{e.getDateDebut()|date('d-m-Y')}}</div>
+
+									<h2 class="entry-title">
+										<a href="#">{{e.nom}}</a>
+									</h2>
+
+									<div class="post-metas d-flex flex-wrap align-items-center">
+										<span class="cat-links">
+											<a href="#">La voix de l'enfant à Nabeul</a>
+										</span>
+										<span class="post-comments">
+											<a href="add/comment/{{e.id}}">{{e.comments | length }} Commentaires</a>
+										</span>
+									</div>
+								</div>
+
+								<div class="donate-icon">
+									<a href="#"><img src="images/donate-icon.png" alt=""></a>
+								</div>
+							</header>
+
+							<div class="entry-content">
+								<p>{{e.descreption}}</p>
+							</div>
+
+						</div>
+					
+
+					{% endfor %}
+				</div>
+
+				<div class="col-12 col-lg-4">
+					<div class="sidebar">
+						<div class="search-widget">
+							<form class="flex flex-wrap align-items-center">
+								<input type="search" placeholder="Search...">
+								<button type="submit" class="flex justify-content-center align-items-center">GO</button>
+							</form>
+							<!-- .flex -->
+						</div>
+						<!-- .search-widget -->
+
+						<div class="popular-posts">
+							<h2>évenements populaires</h2>
+
+							<ul class="p-0">
+								{% for c in popevent %}
+									<li class="d-flex flex-wrap justify-content-between align-items-center">
+										<figure>
+											<a href="#"><img src="images/p-1.jpg" alt=""></a>
+										</figure>
+
+										<div class="entry-content">
+											<h3 class="entry-title">
+												<a href="#">{{c.nom}}</a>
+											</h3>
+
+											<div class="posted-date">{{c.getDateDebut()|date('d-m-Y')}}</div>
+										</div>
+									</li>
+
+								{% endfor %}
+							</ul>
+						</div>
+						<!-- .cat-links -->
+
+						<div class="upcoming-events">
+							<h2>Upcoming Events</h2>
+
+							<ul class="p-0">
+								{% for x in event %}
+									<li class="d-flex flex-wrap justify-content-between align-items-center">
+										<figure>
+											<a href="#"><img src="images/u-1.jpg" alt=""></a>
+										</figure>
+
+										<div class="entry-content">
+											<h3 class="entry-title">
+												<a href="#">{{x.nom}}</a>
+											</h3>
+
+											<div class="post-metas d-flex flex-wrap align-items-center">
+												<span class="posted-date">
+													<a href="#">{{x.getDateDebut()|date('d-m-Y')}}</a>
+												</span>
+												<span class="event-location">
+													<a href="#">Ball Room New York</a>
+												</span>
+											</div>
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+										</div>
+									</li>
+								{% endfor %}
+
+							</ul>
+						</div>
+						<!-- .cat-links -->
+					</div>
+					<!-- .sidebar -->
+				</div>
+				<!-- .col -->
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

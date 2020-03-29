@@ -1,0 +1,63 @@
+{% extends 'basefos.html.twig' %}
+{% block body %}
+	<div class="wrapper">
+		<div class="inner">
+			<form action="{{path('add_admin')}}" method="post">
+				<h3>Créer un Compte
+				</h3>
+				{% for flashMessage in app.session.flashbag.get('addadmin') %}
+					<div class="alert alert-success">
+						{{ flashMessage }}
+					</div>
+				{% endfor %}
+				{% for flashMessage in app.session.flashbag.get('erraddarchi') %}
+					<div class="alert alert-danger">
+						{{ flashMessage }}
+					</div>
+				{% endfor %}
+				<div class="form-row">
+					<div class="form-wrapper">
+						<label for="">Nom*</label>
+						<input type="text" class="form-control" placeholder="Votre Nom" name="name">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Tél *</label>
+						<input type="number" class="form-control" placeholder="Tél" name="phone">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-wrapper">
+						<label for="">Date de Naissance *</label>
+						<span class="lnr lnr-calendar-full"></span>
+						<input type="text" class="form-control datepicker-here" name="birthdate" data-language='en' data-date-format="dd M yyyy" id="dp1">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Adresse</label>
+						<input type="text" class="form-control" name="address" placeholder="Votre Adresse">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-wrapper">
+						<label for="">Email *</label>
+						<input type="email" class="form-control" name="email">
+					</div>
+					<div class="form-wrapper">
+						<label for="">Mot De Passe *</label>
+						<input type="password" class="form-control" name="pass">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-wrapper">
+						<label for="">Confirmer Mot De Passe *</label>
+						<input type="password" class="form-control" name="repass">
+					</div>
+				</div>
+				<button data-text="Enregistrer">
+					<span>Enregistrer</span>
+				</button>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}

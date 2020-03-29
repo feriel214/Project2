@@ -1,0 +1,24 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+	<div class="card" >
+		<img class="card-img-top" src="{{asset('e.jpg')}}" alt="Card image cap" width="300px" height="250px" style="width: 18rem;">
+		<div class="card-body">
+			<h5 class="card-title">Profile</h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">{{admin.username}}</li>
+			<li class="list-group-item">{{admin.email}}</li>
+			<li class="list-group-item">{{admin.adress}}</li>
+            <li class="list-group-item">{{admin.phone}}</li>
+
+		</ul>
+		<div class="card-body">
+			<a href="update/profile/{id}" class="btn btn-light">Modifier Coordonés</a>
+			<a href="update/password/{id}" class="btn btn-light">Modifier Mot de Passe</a>
+		</div>
+	</div>
+
+{% endblock %}
